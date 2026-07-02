@@ -331,13 +331,13 @@ const About = () => {
                   )}
 
                   {/* Watermark Logo character in background */}
-                  <span
+                  {/* <span
                     className={`absolute -bottom-10 -right-4 font-black select-none pointer-events-none text-[15rem] md:text-[18rem] leading-none opacity-[0.04] ${
                       card.theme === "light" ? "text-black" : "text-white"
                     }`}
                   >
                     {card.watermark}
-                  </span>
+                  </span> */}
 
                   {/* Card Content Wrapper */}
                   <div className="relative z-10 w-full h-full flex flex-col justify-between">

@@ -74,26 +74,26 @@ const Hero = () => {
             whileTap={{ scale: 0.98 }}
             onClick={handleCTA}
             className="
-              px-8
-              py-4
-              bg-white/[0.02]
-              backdrop-blur-md
-              text-white
-              font-black
-              text-xs
-              md:text-sm
-              tracking-[0.2em]
-              uppercase
-              rounded-full
-              border
-              border-[#ea222d]/25
-              hover:border-[#ea222d]/60
-              hover:bg-white/[0.07]
-              shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_32px_rgba(234,34,45,0.06)]
-              transition-all
-              duration-300
-              cursor-pointer
-            "
+  px-8
+  py-4
+  bg-[#7a0f14]
+  backdrop-blur-md
+  text-white
+  font-black
+  text-xs
+  md:text-sm
+  tracking-[0.2em]
+  uppercase
+  rounded-full
+  border
+  border-[#ea222d]/40
+  hover:bg-[#9b151b]
+  hover:border-[#ea222d]/70
+  shadow-[0_8px_32px_rgba(122,15,20,0.35)]
+  transition-all
+  duration-300
+  cursor-pointer
+"
           >
             Collaborate With Us
           </motion.button>

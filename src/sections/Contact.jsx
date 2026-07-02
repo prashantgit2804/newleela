@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, MapPin, User, Mail, Send, Award, Facebook, Linkedin, Instagram, Twitter } from "lucide-react";
-
+import OurGroupInfrastructure from "../assets/images/OurGroupInfrastructure.png"
 const groupInfrastructure = [
   "Leela Partner Limited",
   "Leela USA LLC",
@@ -332,11 +332,16 @@ const Contact = () => {
 
         {/* Group Infrastructure Grid Layout */}
         <div className="mt-24 pt-16 border-t border-white/5 max-w-6xl mx-auto">
-          <div className="flex items-center gap-2 mb-8">
-            <Award className="text-[#ea222d]" size={20} />
-            <h3 className="text-xs md:text-sm font-black tracking-[0.2em] uppercase text-white">Our Group Infrastructure</h3>
-          </div>
-          
+  <div className="flex items-center gap-2 mb-8">
+  <img
+    src={OurGroupInfrastructure}
+    alt="Infrastructure"
+    className="w-[30px] h-[30px] object-contain"
+  />
+  <h3 className="text-xs md:text-sm font-black tracking-[0.2em] uppercase text-white">
+    Our Group Infrastructure
+  </h3>
+</div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
             {groupInfrastructure.map((name, index) => (
               <div 
