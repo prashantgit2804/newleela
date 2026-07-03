@@ -48,11 +48,11 @@ const WayForward = () => {
       <div className="container mx-auto px-6 md:px-12">
         {/* Section Header */}
         <div className="max-w-3xl mb-20">
-          <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-[#ea222d] block mb-2">THE WAY FORWARD</span>
-          <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-6">
+          <span className="section-tag">THE WAY FORWARD</span>
+          <h2 className="section-title">
             FUTURE VERTICALS
           </h2>
-          <p className="text-gray-400 text-sm md:text-base font-light leading-relaxed">
+          <p className="section-desc">
             Leela Films is rapidly evolving into a fully integrated media conglomerate. Our upcoming specialized divisions are meticulously designed to capture and elevate every facet of the entertainment lifecycle.
           </p>
         </div>

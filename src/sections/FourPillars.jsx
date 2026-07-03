@@ -147,13 +147,13 @@ const FourPillars = () => {
         
         {/* Title Block */}
         <div className="max-w-3xl mb-16 pb-6 border-b border-white/10">
-          <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-[#ea222d] block mb-2">
+          <span className="section-tag">
             THE CORE DNA
           </span>
-          <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-6">
+          <h2 className="section-title">
             FOUR PILLARS
           </h2>
-          <p className="text-gray-400 text-sm font-light leading-relaxed">
+          <p className="section-desc">
             The foundation of our execution, creativity, and daily mindset. At Leela Films, we do not build employees; we build hunters.
           </p>
         </div>

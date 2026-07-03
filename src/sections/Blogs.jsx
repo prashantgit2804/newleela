@@ -45,13 +45,13 @@ const Blogs = ({ blogs = [], onBlogClick }) => {
         
         {/* Section Header */}
         <div className="max-w-3xl mb-20">
-          <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-[#ea222d] block mb-2">
+          <span className="section-tag">
             STORIES & INSIGHTS
           </span>
-          <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-6">
+          <h2 className="section-title">
             OUR BLOGS
           </h2>
-          <p className="text-gray-400 text-sm md:text-base font-light leading-relaxed">
+          <p className="section-desc">
             Delve into our thoughts on filmmaking, storytelling, cinematic lighting, and the future of cultural media ecosystems.
           </p>
         </div>

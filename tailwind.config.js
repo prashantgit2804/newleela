@@ -26,7 +26,7 @@ export default {
         subtle: "var(--border-color)",
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
       },
     },
   },

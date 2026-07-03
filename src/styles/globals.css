@@ -4,6 +4,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .section-tag {
+    @apply text-xs md:text-sm font-black uppercase tracking-[0.3em] text-[#ea222d] block mb-2;
+  }
+  .section-title {
+    @apply text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-6;
+  }
+  .section-desc {
+    @apply text-gray-400 text-sm md:text-base font-light leading-relaxed max-w-2xl;
+  }
+}
+
 :root {
   /* Colors */
   --bg-primary: #000000;

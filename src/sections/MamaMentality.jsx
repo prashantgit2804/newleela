@@ -19,7 +19,7 @@ const MamaMentality = () => {
             transition={{ duration: 0.8 }}
             className="mb-8 block"
           >
-            <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-[#ea222d]">
+            <span className="section-tag">
                OUR DRIVE 
             </span>
           </motion.div>

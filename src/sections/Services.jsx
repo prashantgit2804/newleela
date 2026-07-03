@@ -66,13 +66,13 @@ const Services = () => {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         {/* Title */}
         <div className="max-w-3xl mb-16 pb-6 border-b border-white/10">
-          <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-[#ea222d] block mb-2">
+          <span className="section-tag">
             WHAT WE DO
           </span>
-          <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-6">
+          <h2 className="section-title">
             SERVICES
           </h2>
-          <p className="text-gray-400 text-sm font-light leading-relaxed">
+          <p className="section-desc">
             We provide comprehensive, end-to-end production solutions, taking ideas from raw creative concepts to fully realized, premium visual assets.
           </p>
         </div>

@@ -219,13 +219,13 @@ const About = () => {
       <div className="relative w-full overflow-hidden flex flex-col justify-between py-12 md:py-16 min-h-[620px] md:min-h-[720px] z-10">
         {/* Section Header */}
         <div className="container mx-auto px-6 md:px-12 text-left z-20">
-          <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-[#ea222d] block mb-2">
+          <span className="section-tag">
             04 / STUDIO IDENTITY
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight mb-2">
+          <h2 className="section-title">
             OUR PHILOSOPHY & DNA
           </h2>
-          <p className="text-gray-400 text-xs md:text-sm font-light max-w-md leading-relaxed">
+          <p className="section-desc">
             Landing centered on our vision, the deck sways dynamically and sways
             smoothly as you scroll down.
           </p>
