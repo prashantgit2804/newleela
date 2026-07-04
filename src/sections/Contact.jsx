@@ -40,7 +40,7 @@ const Contact = () => {
   const [inquiryForm, setInquiryForm] = useState({
     full_name: "",
     email: "",
-    interest: "Brand Campaign & TVC",
+    interest: "Select Collaboration of Interest",
     message: "",
   });
   const [inquiryLoading, setInquiryLoading] = useState(false);
@@ -51,7 +51,7 @@ const Contact = () => {
     full_name: "",
     email: "",
     phone_number: "",
-    position: "Director / Assistant Director",
+    position: "Select Position of Intrest",
     portfolio_link: "",
     why_join: "",
   });
