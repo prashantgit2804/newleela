@@ -64,8 +64,7 @@ const Hero = () => {
             Welcome to Leela Films a new age entertainment and media
             ecosystem built on modern production systems, cultural
             authenticity, and the relentless pursuit of excellence.
-          </p>
-<motion.button
+          </p><motion.button
   whileHover={{ scale: 1.03 }}
   whileTap={{ scale: 0.98 }}
   onClick={handleCTA}
@@ -86,6 +85,7 @@ const Hero = () => {
 >
   Collaborate With Us
 </motion.button>
+
 
         </motion.div>
       </div>
