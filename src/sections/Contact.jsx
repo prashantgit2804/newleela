@@ -18,18 +18,19 @@ import OurGroupInfrastructure from "../assets/images/OurGroupInfrastructure.png"
 import AminesLogo from "../assets/images/partner_logo/Amines_logo.png";
 import LeelaUSALogo from "../assets/images/partner_logo/Leela_USA_logo.png";
 import PureLeelaLogo from "../assets/images/partner_logo/Pure_Leela_logo.png";
+import gaurivala from "../assets/images/partner_logo/gaurivala.png";
+import gulf from "../assets/images/partner_logo/gulf.png";
 
 // Import API helper
 import { api } from "../utils/api";
 
 const groupInfrastructure = [
-  { name: "Leela Partner Limited" },
   { name: "Leela USA LLC", logo: LeelaUSALogo },
   { name: "Pure Leela Limited", logo: PureLeelaLogo },
   { name: "Tobias Amines Limited", logo: AminesLogo },
-  { name: "Leepol" },
-  { name: "Leela Motivala" },
-  { name: "Go seek" },
+  { name: "Leela Gulf",logo:gulf },
+  { name: "Leela by Gauri Vala", logo: gaurivala},
+ 
 ];
 
 const Contact = () => {
