@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const teamData = [
   {
-    name: "Ujaas Patel",
+    name: "Ujas Patel",
     role: "Founder",
     bio: "Directing the creative vision, championing culturally rooted narratives, and orchestrating modern high-fidelity production pipelines.",
     // image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop"
