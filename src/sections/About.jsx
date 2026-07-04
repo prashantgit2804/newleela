@@ -379,7 +379,7 @@ const About = () => {
                       <p
                         className={`text-xs md:text-sm font-light leading-relaxed ${
                           card.theme === "light"
-                            ? "text-black/70"
+                            ? "text-black/100"
                             : card.theme === "brand-red"
                               ? "text-white/80"
                               : "text-gray-400"
