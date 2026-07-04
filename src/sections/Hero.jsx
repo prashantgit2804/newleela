@@ -65,38 +65,28 @@ const Hero = () => {
             ecosystem built on modern production systems, cultural
             authenticity, and the relentless pursuit of excellence.
           </p>
+<motion.button
+  whileHover={{ scale: 1.03 }}
+  whileTap={{ scale: 0.98 }}
+  onClick={handleCTA}
+  className="
+    px-8
+    py-4
+    bg-red-600
+    text-white
+    font-bold
+    text-sm
+    uppercase
+    rounded-md
+    hover:bg-red-700
+    transition-colors
+    duration-200
+    cursor-pointer
+  "
+>
+  Collaborate With Us
+</motion.button>
 
-          <motion.button
-            whileHover={{
-              scale: 1.03,
-              boxShadow: "0px 0px 30px rgba(234,34,45,0.35)",
-            }}
-            whileTap={{ scale: 0.98 }}
-            onClick={handleCTA}
-            className="
-  px-8
-  py-4
-  bg-[#7a0f14]
-  backdrop-blur-md
-  text-white
-  font-black
-  text-xs
-  md:text-sm
-  tracking-[0.2em]
-  uppercase
-  rounded-full
-  border
-  border-[#ea222d]/40
-  hover:bg-[#9b151b]
-  hover:border-[#ea222d]/70
-  shadow-[0_8px_32px_rgba(122,15,20,0.35)]
-  transition-all
-  duration-300
-  cursor-pointer
-"
-          >
-            Collaborate With Us
-          </motion.button>
         </motion.div>
       </div>
 
