@@ -57,7 +57,7 @@ const Hero = () => {
               Empowering Talent.
             </span>
             <br />
-            Telling Indian Stories Globally.
+           Bringing Indian stories to the world
           </h2>
 
           <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-xl mb-10">
