@@ -259,7 +259,7 @@ const Contact = () => {
                         }
                         className="w-full bg-black/40 border border-white/10 p-3 rounded-sm text-sm text-white focus:outline-none focus:border-[#ea222d] transition-all"
                       >
-                        <option className="bg-zinc-950" disabled hidden>
+                        <option className="bg-zinc-950">
                           Select Collaboration Interest
                         </option>
                         <option className="bg-zinc-950">
@@ -420,7 +420,7 @@ const Contact = () => {
                           }
                           className="w-full bg-black/40 border border-white/10 p-3 rounded-sm text-sm text-white focus:outline-none focus:border-[#ea222d] transition-all"
                         >
-                           <option className="bg-zinc-950" disabled hidden>
+                           <option className="bg-zinc-950">
                           Select Position of Intrest
                         </option>
                           <option className="bg-zinc-950">
