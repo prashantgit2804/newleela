@@ -259,6 +259,9 @@ const Contact = () => {
                         }
                         className="w-full bg-black/40 border border-white/10 p-3 rounded-sm text-sm text-white focus:outline-none focus:border-[#ea222d] transition-all"
                       >
+                        <option className="bg-zinc-950" disabled hidden>
+                          Select Collaboration Interest
+                        </option>
                         <option className="bg-zinc-950">
                           Brand Campaign & TVC
                         </option>
@@ -417,6 +420,9 @@ const Contact = () => {
                           }
                           className="w-full bg-black/40 border border-white/10 p-3 rounded-sm text-sm text-white focus:outline-none focus:border-[#ea222d] transition-all"
                         >
+                           <option className="bg-zinc-950" disabled hidden>
+                          Select Position of Intrest
+                        </option>
                           <option className="bg-zinc-950">
                             Director / Assistant Director
                           </option>
@@ -526,7 +532,7 @@ const Contact = () => {
                   <MapPin className="text-[#ea222d]" size={18} />
                 </div>
                 <div>
-                  <span className="text-[9px] font-black tracking-widest text-gray-500 uppercase block mb-1.5">
+                  <span className="text-lg font-black text-white uppercase tracking-tight mb-2 block hover:text-[#ea222d] transition-colors">
                     Corporate Address
                   </span>
                   <a
@@ -574,7 +580,7 @@ const Contact = () => {
                 <MapPin className="text-gray-400" size={18} />
               </div>
               <div>
-                <span className="text-[9px] font-black tracking-widest text-gray-500 uppercase block mb-1.5">
+                <span className="text-lg font-black text-white uppercase tracking-tight mb-2 block hover:text-[#ea222d] transition-colors">
                   Registered Address
                 </span>
                 <h4 className="text-base font-black text-white uppercase tracking-tight mb-2">
