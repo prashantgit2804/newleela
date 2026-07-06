@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, Quote, Flame, Zap, Eye, Check, Target, Compass, Award, ShieldAlert } from "lucide-react";
-import Hunter from "../assets/images/Hunter.png";
-import LegendryCraft from "../assets/images/LegendryCraft.png";
-import Deciplin from "../assets/images/Deciplin.png";
+import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+
+// Import cinematic background images
+import HuntTheImpossibleImg from "../assets/images/Hunttheimposible.png";
+import ObsessionImg from "../assets/images/Obsession Over Mediocrity.png";
+import CreateStealImg from "../assets/images/CreateSteal.png";
+import ExecutionImg from "../assets/images/Executionis Everything.png";
 
 const pillarsData = [
   {
@@ -17,15 +20,8 @@ const pillarsData = [
       "We believe that you can literally come back from anything.",
       "The standard is clear: win with us or watch us win."
     ],
-    badge: "Hunter Mindset",
-    metric: "Obsession Level: 10/10",
-    icon: (
-      <img
-        src={Hunter}
-        alt="Hunter"
-        className="w-5 h-5 object-contain"
-      />
-    ),
+    metric: "OBSESSION LEVEL: 10/10",
+    bgImage: HuntTheImpossibleImg,
   },
   {
     id: "02",
@@ -38,15 +34,8 @@ const pillarsData = [
       "You must make a choice to either increase your sacrifice or reduce your desire.",
       "Action is the secret; if you spend too much time thinking, you will never get it done."
     ],
-    badge: "Legendary Craft",
-    metric: "Standard: Uncompromised",
-     icon: (
-      <img
-        src={LegendryCraft}
-        alt="Legendary Craft"
-        className="w-5 h-5 object-contain"
-      />
-    ),
+    metric: "STANDARD: UNCOMPROMISED",
+    bgImage: ObsessionImg,
   },
   {
     id: "03",
@@ -59,9 +48,8 @@ const pillarsData = [
       "We focus on transformation rather than imitation.",
       "True originality is simply the depth plus the breadth of your sources."
     ],
-    badge: "Remix Reality",
-    metric: "Creative Synergy: Max",
-    icon: <Compass size={20} className="text-[#ea222d]" />
+    metric: "CREATIVE SYNERGY: MAX",
+    bgImage: CreateStealImg,
   },
   {
     id: "04",
@@ -74,15 +62,8 @@ const pillarsData = [
       "We believe that until death, all defeat is merely psychological.",
       "Every wasted year is another year your father cannot rest."
     ],
-    badge: "Extreme Discipline",
-    metric: "Consistency: Daily",
-    icon: (
-      <img
-        src={Deciplin}
-        alt="Discipline"
-        className="w-5 h-5 object-contain"
-      />
-    ),
+    metric: "CONSISTENCY: DAILY",
+    bgImage: ExecutionImg,
   }
 ];
 
@@ -102,248 +83,215 @@ const FourPillars = () => {
 
   const activePillar = pillarsData[activeIdx];
 
-  // Animation variants for the card slide transition
-  const cardVariants = {
+  // Animation variants for content slide transition
+  const contentVariants = {
     enter: (dir) => ({
-      x: dir > 0 ? 150 : -150,
+      x: dir > 0 ? 50 : -50,
       opacity: 0,
-      scale: 0.95,
       filter: "blur(4px)",
     }),
     center: {
       x: 0,
       opacity: 1,
-      scale: 1,
       filter: "blur(0px)",
       transition: {
-        x: { type: "spring", stiffness: 300, damping: 30 },
+        x: { type: "spring", stiffness: 200, damping: 25 },
         opacity: { duration: 0.4 },
-        scale: { duration: 0.4 },
         filter: { duration: 0.3 }
       },
     },
     exit: (dir) => ({
-      x: dir < 0 ? 150 : -150,
+      x: dir < 0 ? 50 : -50,
       opacity: 0,
-      scale: 0.95,
       filter: "blur(4px)",
       transition: {
-        x: { type: "spring", stiffness: 300, damping: 30 },
+        x: { type: "spring", stiffness: 200, damping: 25 },
         opacity: { duration: 0.3 },
-        scale: { duration: 0.3 },
         filter: { duration: 0.2 }
       },
     }),
   };
 
   return (
-    <section id="pillars" className="relative py-24 md:py-36  overflow-hidden border-t border-white/5">
-      {/* Dynamic Cinematic Watermark Text */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none opacity-[0.03] font-black text-[22vw] tracking-tighter uppercase whitespace-nowrap text-white">
-        {activePillar.title.split(" ")[0]}
+    <section 
+      id="pillars" 
+      className="relative min-h-screen bg-black overflow-hidden flex flex-col justify-center py-20 md:py-28"
+    >
+      {/* Background Image Container with Cinematic Overlay Masks */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeIdx}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.65 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full"
+          >
+            {/* Background Image */}
+            <img
+              src={activePillar.bgImage}
+              alt={activePillar.title}
+              className="absolute right-0 top-0 w-full lg:w-[65%] h-full object-cover object-center"
+            />
+            {/* Gradient overlays to fade out the image at left and edges */}
+            <div className="absolute inset-0 bg-black/60 lg:bg-transparent lg:bg-gradient-to-r lg:from-black lg:via-black/70 lg:to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_15%,_black_90%)] lg:bg-[radial-gradient(circle_at_right,_transparent_20%,_black_85%)]" />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        
-        {/* Title Block */}
-        <div className="max-w-3xl mb-16 pb-6 border-b border-white/10">
-          <span className="section-tag">
-            THE CORE DNA
-          </span>
-          <h2 className="section-title">
-            FOUR PILLARS
-          </h2>
-          <p className="section-desc">
-            The foundation of our execution, creativity, and daily mindset. At Leela Films, we do not build employees; we build hunters.
-          </p>
-        </div>
-
-        {/* Main Review Card Slide Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch min-h-[460px] max-w-6xl mx-auto">
+      <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10 w-full flex flex-col justify-between min-h-[80vh] gap-12">
+        {/* Top/Middle Pillar Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start w-full relative">
           
-          {/* Left Navigation Details (3 cols) */}
-          <div className="lg:col-span-3 flex flex-col justify-between py-4">
-            <div className="space-y-6">
-              <div>
-                <span className="text-5xl font-mono font-black text-[#ea222d]">
-                  {activePillar.id}
-                </span>
-                <span className="text-xl font-mono text-white/30 ml-2">/ 04</span>
-              </div>
-              
-              <div className="space-y-2">
-                <span className="text-xs font-mono font-black uppercase tracking-wider text-white/40 block">
-                  ACTIVE RULE
-                </span>
-                <h4 className="text-2xl font-black uppercase text-white tracking-tight leading-tight transition-colors duration-300">
-                  {activePillar.title}
-                </h4>
-              </div>
-            </div>
-
-            {/* Desktop Navigation Controls */}
-            <div className="hidden lg:flex flex-col gap-6 pt-8">
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={handlePrev}
-                  className="w-12 h-12 rounded-full bg-white/[0.02] backdrop-blur-md border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.07] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.5)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_8px_32px_rgba(234,34,45,0.1)] flex items-center justify-center text-white/70 hover:text-[#ea222d] transition-all hover:scale-105 active:scale-95 group cursor-pointer"
-                  aria-label="Previous Pillar"
-                >
-                  <ArrowLeft size={18} className="group-hover:-translate-x-0.5 transition-transform" />
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="w-12 h-12 rounded-full bg-white/[0.02] backdrop-blur-md border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.07] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.5)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_8px_32px_rgba(234,34,45,0.1)] flex items-center justify-center text-white/70 hover:text-[#ea222d] transition-all hover:scale-105 active:scale-95 group cursor-pointer"
-                  aria-label="Next Pillar"
-                >
-                  <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
-                </button>
-              </div>
-
-              {/* Progress Bar Dots */}
-              <div className="flex items-center gap-2">
-                {pillarsData.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => {
-                      setDirection(i > activeIdx ? 1 : -1);
-                      setActiveIdx(i);
-                    }}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      i === activeIdx ? "w-8 bg-[#ea222d]" : "w-2 bg-white/20 hover:bg-white/40"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Pillar Slide Card (9 cols) */}
-          <div className="lg:col-span-9 relative flex items-center justify-center">
-            
+          {/* Left Column: Textual Information */}
+          <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={activeIdx}
                 custom={direction}
-                variants={cardVariants}
+                variants={contentVariants}
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="w-full bg-zinc-900/40 border border-white/10 backdrop-blur-lg rounded-2xl p-8 md:p-12 relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),_0_30px_70px_rgba(0,0,0,0.8),_0_2px_10px_rgba(0,0,0,0.4)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.25),_0_35px_80px_rgba(0,0,0,0.9),_0_0_30px_rgba(234,34,45,0.1)] hover:border-[#ea222d]/30 transition-all duration-500 flex flex-col justify-between gap-8 group"
+                className="space-y-6"
               >
-                {/* Visual Accent Borders */}
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#ea222d] pointer-events-none opacity-60" />
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#ea222d] pointer-events-none opacity-60" />
-                
-                {/* Glowing subtle red radial ambient backdrop light */}
-                <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-[#ea222d]/5 blur-3xl pointer-events-none" />
-
-                {/* Card Top: Tags, Badges & Review Metrics */}
-                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/5 pb-6">
-                  <div className="flex items-center gap-3">
-                    <span className="p-2 bg-[#ea222d]/10 rounded-lg flex items-center justify-center">
-                      {activePillar.icon}
-                    </span>
-                    <div>
-                      <span className="text-[10px] font-mono tracking-widest text-[#ea222d] font-bold block">
-                        {activePillar.tag}
-                      </span>
-                      <span className="text-xs font-semibold text-white/50">
-                        {activePillar.badge}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="bg-zinc-950/80 border border-white/5 px-4 py-1.5 rounded-full flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#ea222d] animate-pulse"></span>
-                    <span className="text-[10px] font-mono tracking-wider text-white/60 uppercase">
-                      {activePillar.metric}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Middle: Large Quote Statement (Testimonial Design) & Description */}
-                <div className="space-y-6 relative">
-                  {/* Decorative Low-opacity Big Quote */}
-                  <Quote size={80} className="absolute -top-6 -left-4 text-white/[0.03] pointer-events-none font-bold" />
-                  
-                  <h3 className="text-2xl md:text-4xl font-extrabold text-white leading-tight tracking-tight uppercase italic relative z-10">
-                    "{activePillar.quote}"
-                  </h3>
-                  
-                  <p className="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-4xl relative z-10">
-                    {activePillar.desc}
-                  </p>
-                </div>
-
-                {/* Card Bottom: Core Beliefs List formatted like checklist review ratings */}
-                <div className="border-t border-white/5 pt-6 space-y-4">
-                  <span className="text-xs font-mono font-bold tracking-widest text-white/30 uppercase block">
-                    OUR CORE BELIEFS
+                {/* Active Indicator & Fraction */}
+                <div className="flex items-baseline">
+                  <span className="text-4xl md:text-5xl font-mono font-black text-[#ea222d] tracking-tighter">
+                    {activePillar.id}
                   </span>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {activePillar.beliefs.map((belief, idx) => (
-                      <div 
-                        key={idx} 
-                        className="bg-zinc-950/50 border border-white/5 hover:border-[#ea222d]/30 transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.05),_0_8px_24px_rgba(0,0,0,0.3)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.1),_0_12px_32px_rgba(0,0,0,0.4)] p-4 rounded-xl flex gap-3 group/item"
-                      >
-                        <div className="w-5 h-5 rounded-full bg-[#ea222d]/10 flex items-center justify-center text-[#ea222d] flex-shrink-0 group-hover/item:bg-[#ea222d] group-hover/item:text-white transition-colors duration-300">
-                          <Check size={12} className="stroke-[3]" />
-                        </div>
-                        <p className="text-xs md:text-[13px] text-gray-400 font-light leading-relaxed group-hover/item:text-white transition-colors duration-300">
-                          {belief}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
+                  <span className="text-xl md:text-2xl font-mono text-white/30 ml-2">/ 04</span>
                 </div>
 
+                {/* Pillar Tag */}
+                <span className="text-xs md:text-sm font-mono font-black tracking-[0.25em] text-[#ea222d] block uppercase">
+                  {activePillar.tag}
+                </span>
+
+                {/* Title */}
+                <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tight leading-tight max-w-2xl">
+                  {activePillar.title}
+                </h2>
+
+                {/* Active Rule Label & Border Rule Line */}
+                <div className="flex items-center gap-4 py-1">
+                  <span className="text-[10px] md:text-xs font-mono font-black tracking-widest text-white/40 uppercase whitespace-nowrap">
+                    Active Rule
+                  </span>
+                  <div className="h-[1px] bg-white/20 flex-grow max-w-[200px]" />
+                </div>
+
+                {/* Main Pillar Quote */}
+                <h3 className="text-2xl md:text-4xl font-extrabold text-white leading-tight italic uppercase tracking-tight">
+                  "{activePillar.quote}"
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-300/80 text-sm md:text-base font-light leading-relaxed max-w-2xl">
+                  {activePillar.desc}
+                </p>
               </motion.div>
             </AnimatePresence>
-
           </div>
 
-          {/* Mobile Navigation Controls (Inline grid underneath card) */}
-          <div className="lg:hidden flex flex-col gap-6 items-center pt-4">
-            <div className="flex items-center gap-6">
+          {/* Right Column: Dynamic Capsule Metric Badge (Pulsing Light) */}
+          <div className="lg:col-span-5 flex justify-end items-start pt-4 lg:pt-0">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIdx}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4 }}
+                className="bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full flex items-center gap-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ea222d] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ea222d]"></span>
+                </span>
+                <span className="text-[10px] md:text-xs font-mono font-black tracking-wider text-white uppercase">
+                  {activePillar.metric}
+                </span>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* Footer Area: Arrow Controls & Beliefs Grid */}
+        <div className="border-t border-white/10 pt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end w-full">
+          
+          {/* Controls (Bottom Left) */}
+          <div className="lg:col-span-3 flex flex-col gap-6">
+            {/* Arrows */}
+            <div className="flex items-center gap-4">
               <button
                 onClick={handlePrev}
-                className="w-12 h-12 rounded-full bg-white/[0.02] backdrop-blur-md border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.07] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.5)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_8px_32px_rgba(234,34,45,0.1)] flex items-center justify-center text-white/70 hover:text-[#ea222d] transition-all hover:scale-105 active:scale-95 group cursor-pointer"
+                className="w-12 h-12 rounded-full border border-white/20 hover:border-[#ea222d] hover:bg-[#ea222d]/10 flex items-center justify-center text-white transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer"
                 aria-label="Previous Pillar"
               >
-                <ArrowLeft size={18} />
+                <ArrowLeft size={18} className="group-hover:-translate-x-0.5 transition-transform" />
               </button>
-
-              <div className="flex items-center gap-1.5">
-                {pillarsData.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => {
-                      setDirection(i > activeIdx ? 1 : -1);
-                      setActiveIdx(i);
-                    }}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      i === activeIdx ? "w-6 bg-[#ea222d]" : "w-1.5 bg-white/20"
-                    }`}
-                  />
-                ))}
-              </div>
-
               <button
                 onClick={handleNext}
-                className="w-12 h-12 rounded-full bg-white/[0.02] backdrop-blur-md border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.07] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_8px_32px_rgba(0,0,0,0.5)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_8px_32px_rgba(234,34,45,0.1)] flex items-center justify-center text-white/70 hover:text-[#ea222d] transition-all hover:scale-105 active:scale-95 group cursor-pointer"
+                className="w-12 h-12 rounded-full border border-white/20 hover:border-[#ea222d] hover:bg-[#ea222d]/10 flex items-center justify-center text-white transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer"
                 aria-label="Next Pillar"
               >
-                <ArrowRight size={18} />
+                <ArrowRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
-            
-            <div className="text-[10px] font-mono text-white/30 tracking-widest uppercase">
-              Pillar {activeIdx + 1} of 4
+
+            {/* Pagination Indicators */}
+            <div className="flex items-center gap-2">
+              {pillarsData.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => {
+                    setDirection(i > activeIdx ? 1 : -1);
+                    setActiveIdx(i);
+                  }}
+                  className={`h-[3px] rounded-full transition-all duration-300 ${
+                    i === activeIdx ? "w-8 bg-[#ea222d]" : "w-2 bg-white/20 hover:bg-white/40"
+                  }`}
+                  aria-label={`Go to pillar ${i + 1}`}
+                />
+              ))}
             </div>
           </div>
 
+          {/* Core Beliefs checklist (Bottom Right) */}
+          <div className="lg:col-span-9 space-y-4">
+            <span className="text-[10px] md:text-xs font-mono font-black tracking-[0.25em] text-[#ea222d] uppercase block">
+              Our Core Beliefs
+            </span>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIdx}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.4 }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-6"
+              >
+                {activePillar.beliefs.map((belief, idx) => (
+                  <div 
+                    key={idx} 
+                    className="flex gap-3.5 items-start group"
+                  >
+                    {/* Thin border check circle outline */}
+                    <div className="w-5 h-5 rounded-full border border-[#ea222d] flex items-center justify-center text-[#ea222d] flex-shrink-0 mt-0.5 group-hover:bg-[#ea222d] group-hover:text-white transition-colors duration-300">
+                      <Check size={11} className="stroke-[3]" />
+                    </div>
+                    <p className="text-xs md:text-sm text-gray-300 font-light leading-relaxed group-hover:text-white transition-colors duration-300">
+                      {belief}
+                    </p>
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
 
       </div>

@@ -66,20 +66,18 @@ const Services = () => {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         {/* Title */}
         <div className="max-w-3xl mb-16 pb-6 border-b border-white/10">
-          <span className="section-tag">
-            WHAT WE DO
-          </span>
-          <h2 className="section-title">
-            SERVICES
-          </h2>
+          <span className="section-tag">WHAT WE DO</span>
+          <h2 className="section-title">SERVICES</h2>
           <p className="section-desc">
-            We provide comprehensive, end-to-end production solutions, taking ideas from raw creative concepts to fully realized, premium visual assets.
+            We provide comprehensive, end-to-end production solutions, taking
+            ideas from raw creative concepts to fully realized, premium visual
+            assets.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left list */}
-          <div className="lg:col-span-7 divide-y divide-white/5">
+          <div className="lg:col-span-6 divide-y divide-white/5">
             {servicesData.map((service, index) => {
               const isActive = index === activeIdx;
 
@@ -147,8 +145,8 @@ const Services = () => {
           </div>
 
           {/* Right preview */}
-          <div className="lg:col-span-5 hidden lg:block">
-            <div className="sticky top-28 bg-zinc-950 p-3 border border-white/10 rounded-sm shadow-2xl overflow-hidden aspect-[4/3] relative group">
+          <div className="lg:col-span-6 hidden lg:block">
+            <div className="sticky top-28 bg-zinc-950 p-1.5 border border-white/10 rounded-sm shadow-2xl overflow-hidden aspect-[4/3] relative group">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={activeIdx}
