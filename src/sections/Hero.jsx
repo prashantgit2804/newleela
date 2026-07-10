@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import logo from "../assets/images/logo.png";
+import heroBg from "../assets/images/back.png"; // Change to your background image
 
 const Hero = () => {
   const handleCTA = () => {
@@ -32,14 +32,21 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen overflow-hidden bg-transparent flex items-center"
+      className="relative min-h-screen overflow-hidden flex items-center"
     >
-      {/* Overlays */}
-      <div className="absolute inset-0 z-[15] bg-gradient-to-r from-black via-black/70 to-black/20" />
-      <div className="absolute inset-0 z-[16] bg-gradient-to-b from-black/50 via-transparent to-black" />
+      {/* Background Image */}
+      <img
+        src={heroBg}
+        alt="Hero Background"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+      />
+
+      {/* Dark Overlays */}
+      <div className="absolute inset-0 z-[5] bg-gradient-to-r from-black via-black/70 to-black/20" />
+      <div className="absolute inset-0 z-[6] bg-gradient-to-b from-black/40 via-transparent to-black" />
 
       {/* Content */}
-      <div className="container mx-auto px-6 md:px-12 relative z-20">
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
@@ -57,39 +64,25 @@ const Hero = () => {
               Empowering Talent.
             </span>
             <br />
-           Bringing Indian stories to the world
+            Bringing Indian stories to the world.
           </h2>
 
           <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-xl mb-10">
-            Welcome to Leela Films a new age entertainment and media
+            Welcome to Leela Films, a new-age entertainment and media
             ecosystem built on modern production systems, cultural
             authenticity, and the relentless pursuit of excellence.
-          </p><motion.button
-  whileHover={{ scale: 1.03 }}
-  whileTap={{ scale: 0.98 }}
-  onClick={handleCTA}
-  className="
-    px-8
-    py-4
-    bg-red-600
-    text-white
-    font-bold
-    text-sm
-    uppercase
-    rounded-md
-    hover:bg-red-700
-    transition-colors
-    duration-200
-    cursor-pointer
-  "
->
-  Collaborate With Us
-</motion.button>
+          </p>
 
-
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={handleCTA}
+            className="px-8 py-4 bg-red-600 text-white font-bold text-sm uppercase rounded-md hover:bg-red-700 transition-colors duration-200 cursor-pointer"
+          >
+            Collaborate With Us
+          </motion.button>
         </motion.div>
       </div>
-
     </section>
   );
 };
