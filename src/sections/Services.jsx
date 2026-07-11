@@ -4,7 +4,7 @@ import { Film, Monitor, Tv, Briefcase, ArrowUpRight } from "lucide-react";
 
 import CorporateFilm from "../assets/images/CorporateFilm.png";
 import FilmProduction from "../assets/images/FilmProduction.png";
-import TVC from "../assets/images/TVC.png";
+import TVC from "../assets/images/TVC.jpeg";
 import Webseries from "../assets/images/Webseries.png";
 
 const servicesData = [
@@ -46,7 +46,7 @@ const Services = () => {
       id="services"
       className="relative py-24 md:py-36 bg-transparent overflow-hidden border-t border-white/5"
     >
-      {/* Background visual transition */}
+      {/* Background visual transition - Cleaned filters for original color depth */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-20 transition-all duration-700">
         <AnimatePresence mode="wait">
           <motion.img
@@ -57,7 +57,7 @@ const Services = () => {
             animate={{ opacity: 0.15, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.6 }}
-            className="w-full h-full object-cover filter grayscale blur-[2px]"
+            className="w-full h-full object-cover" // Removed grayscale and blur
           />
         </AnimatePresence>
         <div className="absolute inset-0 bg-black/85" />
@@ -75,8 +75,8 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left list */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+          {/* Left list (Hover interaction stays intact) */}
           <div className="lg:col-span-6 divide-y divide-white/5">
             {servicesData.map((service, index) => {
               const isActive = index === activeIdx;
@@ -115,11 +115,12 @@ const Services = () => {
                           transition={{ duration: 0.3, ease: "easeOut" }}
                           className="space-y-4 pt-2 overflow-hidden"
                         >
+                          {/* Mobile view fallback - Removed grayscale and brightness filters */}
                           <div className="lg:hidden w-full aspect-[4/3] rounded-xs border border-white/10 relative overflow-hidden bg-zinc-950">
                             <img
                               src={service.image}
                               alt={service.title}
-                              className="w-full h-full object-cover grayscale brightness-90"
+                              className="w-full h-full object-cover" 
                             />
                           </div>
 
@@ -144,9 +145,9 @@ const Services = () => {
             })}
           </div>
 
-          {/* Right preview */}
-          <div className="lg:col-span-6 hidden lg:block">
-            <div className="sticky top-28 bg-zinc-950 p-1.5 border border-white/10 rounded-sm shadow-2xl overflow-hidden aspect-[4/3] relative group">
+          {/* Right preview - Swaps out on hover, displaying full-color original images directly */}
+          <div className="lg:col-span-6 hidden lg:block self-stretch">
+            <div className="sticky top-28 w-full h-full max-h-[calc(100vh-160px)] min-h-[400px] bg-zinc-950 p-1.5 border border-white/10 rounded-sm shadow-2xl overflow-hidden relative group">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={activeIdx}
@@ -156,7 +157,7 @@ const Services = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
                   transition={{ duration: 0.4 }}
-                  className="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" // Removed grayscale, brightness, and transition filters
                 />
               </AnimatePresence>
             </div>
