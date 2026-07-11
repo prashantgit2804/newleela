@@ -19,7 +19,6 @@ const Blogs = ({ blogs = [], onBlogClick }) => {
 
   useEffect(() => {
     checkScroll();
-    // Delay slightly to ensure DOM has rendered
     const timer = setTimeout(checkScroll, 100);
     window.addEventListener("resize", checkScroll);
     return () => {
@@ -31,7 +30,7 @@ const Blogs = ({ blogs = [], onBlogClick }) => {
   const scroll = (direction) => {
     if (scrollRef.current) {
       const { clientWidth } = scrollRef.current;
-      const scrollAmount = clientWidth * 0.8; // Scroll 80% of view
+      const scrollAmount = clientWidth * 0.8;
       scrollRef.current.scrollBy({
         left: direction === "right" ? scrollAmount : -scrollAmount,
         behavior: "smooth",
@@ -98,7 +97,7 @@ const Blogs = ({ blogs = [], onBlogClick }) => {
                 className="bg-zinc-950 border border-white/5 flex flex-col group relative rounded-2xl overflow-hidden cursor-pointer hover:border-[#ea222d]/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),_0_15px_35px_rgba(0,0,0,0.6)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),_0_20px_45px_rgba(0,0,0,0.8),_0_0_30px_rgba(234,34,45,0.08)] transition-all duration-300 w-[300px] md:w-[380px] flex-shrink-0"
               >
                 {/* Image Frame */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900 border-b border-white/5">
+                <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900 border-b border-white/5 w-full">
                   <img
                     src={blog.coverImage}
                     alt={blog.title}
@@ -106,17 +105,20 @@ const Blogs = ({ blogs = [], onBlogClick }) => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500" />
                   
-                  {/* Float tag for Read Time */}
-                  <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-xs text-[10px] font-mono tracking-widest text-[#ea222d] font-bold px-2.5 py-1 border border-white/10 rounded-full flex items-center gap-1.5">
-                    <Clock size={10} />
-                    {blog.readTime}
+                  {/* Fixed Float Tag Layout using style fallback for absolute right spacing */}
+                  <div 
+                    style={{ right: '16px' }}
+                    className="absolute top-4 z-30 bg-black/90 backdrop-blur-md text-[11px] font-mono tracking-wider text-[#ea222d] font-bold px-3 py-1.5 border border-white/10 rounded-full flex items-center gap-1.5 whitespace-nowrap"
+                  >
+                    <Clock size={11} className="flex-shrink-0" />
+                    <span>{blog.readTime}</span>
                   </div>
                 </div>
 
                 {/* Text Area */}
                 <div className="p-6 md:p-8 flex-grow flex flex-col justify-between space-y-6">
                   <div className="space-y-3">
-                    <span className="text-[9px] font-mono tracking-widest text-gray-400 uppercase flex items-center gap-1.5">
+                    <span className="text-[13px] font-mono tracking-widest text-gray-400 uppercase flex items-center gap-1.5">
                       <Calendar size={10} className="text-[#ea222d]" />
                       {blog.publishDate}
                     </span>
@@ -131,7 +133,7 @@ const Blogs = ({ blogs = [], onBlogClick }) => {
                   </div>
 
                   <div className="flex items-center justify-between pt-2">
-                    <span className="text-[10px] font-mono tracking-wider text-[#ea222d] font-bold uppercase flex items-center gap-1.5 group-hover:translate-x-1.5 transition-transform duration-300">
+                    <span className="text-[13px] font-mono tracking-wider text-[#ea222d] font-bold uppercase flex items-center gap-1.5 group-hover:translate-x-1.5 transition-transform duration-300">
                       READ DETAILS
                       <ArrowRight size={12} />
                     </span>
