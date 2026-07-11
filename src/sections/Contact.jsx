@@ -19,6 +19,8 @@ import LeelaUSALogo from "../assets/images/partner_logo/Leela_USA_logo.png";
 import PureLeelaLogo from "../assets/images/partner_logo/Pure_Leela_logo.png";
 import gaurivala from "../assets/images/partner_logo/gaurivala.png";
 import gulf from "../assets/images/partner_logo/gulf.png";
+import LeelaGroup from "../assets/images/partner_logo/LeelaGroup.png";
+
 
 // Import API helper
 import { api } from "../utils/api";
@@ -29,6 +31,7 @@ const groupInfrastructure = [
   { name: "Tobias Amines Limited", logo: AminesLogo },
   { name: "Leela Gulf", logo: gulf },
   { name: "Leela by Gauri Vala", logo: gaurivala },
+   { name: "Leela Group", logo: LeelaGroup },
 ];
 
 const Contact = () => {
@@ -525,7 +528,7 @@ const Contact = () => {
                     href="https://maps.app.goo.gl/99Lm1dNHzxtWipVo8"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-lg font-black text-white uppercase tracking-tight mb-2 block hover:text-[#ea222d] transition-colors"
+                    className="text-sm font-black text-white uppercase tracking-tight mb-2 block hover:text-[#ea222d] transition-colors"
                   >
                     Ahmedabad ↗
                   </a>
@@ -564,9 +567,9 @@ const Contact = () => {
                 <span className="text-lg font-black text-white uppercase tracking-tight mb-2 block">
                   Registered Address
                 </span>
-                <h4 className="text-base font-black text-white uppercase tracking-tight mb-2">
-                  Leela Films Pvt Ltd
-                </h4>
+                <h6 className="text-sm font-black text-white uppercase tracking-tight mb-2">
+                Leela Films Pvt Ltd
+                </h6>
                 <p className="text-gray-400 text-xs md:text-sm font-light leading-relaxed">
                   C/23, Flat No. 502, Golds Green,
                   <br />
